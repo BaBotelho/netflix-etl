@@ -1,7 +1,7 @@
 name: Run ETL Pipeline
 
 on:
-  push:  # Executa quando fizer push para o repositório
+  push:
     branches:
       - main
 
@@ -16,16 +16,16 @@ jobs:
       - name: Configurar Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.12'  # Altere conforme sua versão
+          python-version: '3.12'
 
       - name: Instalar dependências
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           
-          # Instalar pywin32 condicionalmente para Windows
+          # Instalar pywin32 apenas no Windows, com a versão mais recente
           if [[ "$RUNNER_OS" == "Windows" ]]; then
-            pip install pywin32==310
+            pip install pywin32  # Instala a versão mais recente compatível
           fi
 
       - name: Configurar API do Kaggle
