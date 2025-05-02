@@ -1,0 +1,12 @@
+# Ambiente virtual
+.venv/
+
+# Cache do Python
+__pycache__/
+
+# Dados ou arquivos locais
+data/
+*.db
+
+# Configurações do VS Code (opcional)
+.vscode/
